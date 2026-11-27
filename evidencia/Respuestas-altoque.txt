@@ -1,0 +1,12 @@
+Práctica de laboratorio de notificaciones push
+Usuario: altoque
+Paquete Android: pe.edu.pam.altoque.pushlab
+
+¿Qué datos envía la aplicación al Worker?
+Al pulsar «Pedir push al servidor», la app obtiene su ExpoPushToken y lo envía en el campo token de una petición POST a /send. El Worker usa ese dato para indicar a Expo a qué instalación debe entregar el aviso.
+
+¿Dónde se generan la hora y el código?
+El Worker de Cloudflare toma la hora, la formatea para America/Lima y genera un código de ocho caracteres a partir de un UUID. Con esos datos redacta el mensaje y se lo envía a Expo. Expo usa Firebase Cloud Messaging para entregarlo al teléfono Android.
+
+¿Qué demuestra el ticket?
+El ticket confirma que Expo aceptó la solicitud. Para comprobar la entrega hay que abrir la bandeja de Android y localizar «Aviso desde el servidor» con la hora y el código. Al repetir la prueba se espera un código nuevo.
