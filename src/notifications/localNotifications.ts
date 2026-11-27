@@ -1,3 +1,4 @@
+import Constants from 'expo-constants';
 import { Platform } from 'react-native';
 import * as Notifications from 'expo-notifications';
 
@@ -27,6 +28,15 @@ export async function ensureNotificationPermission(): Promise<boolean> {
 
   return permission.granted ||
     permission.ios?.status === Notifications.IosAuthorizationStatus.PROVISIONAL;
+}
+
+export async function getExpoPushToken(): Promise<string> {
+  const allowed = await ensureNotificationPermission();
+  if (!allowed) throw new Error('Permiso denegado');
+  const projectId = Constants.expoConfig?.extra?.eas?.projectId ?? Constants.easConfig?.projectId;
+  if (!projectId) throw new Error('Falta projectId de EAS');
+  const result = await Notifications.getExpoPushTokenAsync({ projectId });
+  return result.data;
 }
 
 export async function showLocalNotification(): Promise<void> {

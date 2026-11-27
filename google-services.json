@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "265643017123",
+    "project_id": "pam-push-altoque",
+    "storage_bucket": "pam-push-altoque.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:265643017123:android:abbd251accf8d2b0655016",
+        "android_client_info": {
+          "package_name": "pe.edu.pam.altoque.pushlab"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_JQ3y8bhUSj1iThkK9ODvE5QoogzDAt8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
